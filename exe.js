@@ -47,7 +47,9 @@
 		if(rule==2&&x.slice(sep,length)==0){
 			return x.slice(0,expr)+x.slice(rep,sep-1)
 		}
-		if(rule==3&&x.slice(sep2,length)==0){}
+		if(rule==3&&x.slice(sep2,length)==0){
+			return x.slice(0,sep-1)
+		}
 		if(rule==2&&x.slice(sep,length)<1){
 			var bound=x.slice(rep,sep-1)
 			if(op>=4||op==0){
@@ -59,12 +61,11 @@
 			}else if(op==1){
 				bound=bound-1
 			}
-			var inter=0
 			console.log(x.slice(rep,sep-1),bound)
 			if(op>=4){
 				return x.slice(0,expr)+"E"+(x.slice(sep,length)*x.slice(rep,sep-1)+(1-x.slice(sep,length))*bound)
 			}else{
-				return x.slice(0,rep+1)+(x.slice(sep,length)*x.slice(rep,sep-1)+(1-x.slice(sep,length))*bound)
+				return x.slice(0,rep)+(x.slice(sep,length)*x.slice(rep,sep-1)+(1-x.slice(sep,length))*bound)
 			}
 		}
 		/*if(rule==2&&x.slice(sep+1,length)==1){
@@ -93,7 +94,7 @@
 		}else if(rule==2){
 			return x.slice(0,expr)+x.slice(expr,rep)+x.slice(expr,sep)+(x.slice(sep,length)-1)
 		}else if(rule==3){
-			return x.slice(0,sep)+x.slice(rep+1,sep2)+(x.slice(sep2,length)-1)
+			return x.slice(0,sep)+x.slice(rep,sep2)+(x.slice(sep2,length)-1)
 		}
 	}
 	function calculate(x,n){

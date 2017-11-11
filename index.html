@@ -4,7 +4,7 @@
 <script>
 console.log("Googol started")
 window.googol={value:1e100,notations:{id:x=>x}}
-var files=["exe.js","unan.js"]
+var files=["exe.js","unan.js","letters.js"]
 for(var i=0;i<files.length;i++){
 	var script=document.createElement("script")
 	script.src=files[i]
@@ -14,18 +14,20 @@ console.log(googol.notations)
 function step(x){
 	var notation="id"
 	for(var i=0;i<x.length;i++){
-		if(x[i].match(/[#ABCDEFGHz]/)){
+		if(x[i].match(/[#ABCDEz]/)){
 			notation="exe"
 		}else if(x[i].match(/\[|\]/)){
 			notation="unan"
+		}else if(x[i].match(/[FGH]/)){
+			notation="letters"
 		}
 	}
 	console.log("notation="+notation)
 	return googol.notations[notation](x)
 }
 function calculate(a,b) {
-if(b==0) return a;
-return calculate(step(a),b-1)
+	if(b==0) return a;
+	return calculate(step(a),b-1)
 }
 </script>
 </head>
@@ -34,8 +36,8 @@ return calculate(step(a),b-1)
 Enter an expression in the next box
 <input id="expr" value="E3">
 <button onclick="expr.value=step(expr.value)">Step</button>
-<button onclick="expr.value=calculate(expr.value,steps.value)">Calculate</button>
+<button>Calculate</button>
 Step size for calculate:
-<input id="steps" value="100">
+<input id="steps">
 </body>
 </html>
