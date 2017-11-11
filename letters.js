@@ -13,18 +13,18 @@
 				op=opcodes.search(x[i])
 			}
 		}
-		console.log(expr,length)
 		var ret=x.slice(expr+1,length)
+		console.log(expr,length,op)
 		if(expr==-1){
 			return x
 		}else if(op==0){
 			return 10*ret
 		}else{
-			const chars="EFGH"
+			const chars="DEFGH"
 			if(ret<1){
 				ret="E"+ret
 			}else{
-				ret=chars[op-5]+chars[op-4]+(ret-1)
+				ret=chars[op-1]+chars[op]+(ret-1)
 			}
 			return x.slice(0,expr)+ret
 		}
