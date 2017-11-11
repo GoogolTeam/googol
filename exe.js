@@ -63,8 +63,8 @@
 			return x.slice(0,sep-1)
 		}
 		if(rule==3&&x.slice(sep2,length)<1){
-			console.log(x.slice(rep,sep-1))
-			return x.slice(0,rep)+(x.slice(rep,sep-1)*x.slice(sep2,length)+1-x.slice(sep2,length))
+			console.log(x.slice(0,rep2),x.slice(rep2,sep-1),x.slice(sep2,length))
+			return x.slice(0,rep2)+(x.slice(rep2,sep-1)*x.slice(sep2,length)+1-x.slice(sep2,length))
 		}
 		if(rule==2&&x.slice(sep,length)==0){
 			return x.slice(0,expr)+x.slice(rep,sep-1)
