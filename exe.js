@@ -26,6 +26,15 @@
 				rep2=sep2=i+1
 				rule=1
 				op=opcodes.search(x[i])
+			}else if(x[i]=="["){
+				for(var j=i;x[j].match("[0-9.e+-]");){
+					j--
+				}
+				expr=j
+				rep=sep=j+1
+				rep2=sep2=j+1
+				rule=1
+				op=0
 			}else if(x[i]=="#"||x[i]=="z"){
 				if(x[i+1]=="#"||x[i+1]=="z"){
 					rule=3
@@ -50,11 +59,15 @@
 		if(expr==-1){
 			return x
 		}
-		if(rule==2&&x.slice(sep,length)==0){
-			return x.slice(0,expr)+x.slice(rep,sep-1)
-		}
 		if(rule==3&&x.slice(sep2,length)==1){
 			return x.slice(0,sep-1)
+		}
+		if(rule==3&&x.slice(sep2,length)<1){
+			console.log(x.slice(rep,sep-1))
+			return x.slice(0,rep)+(x.slice(rep,sep-1)*x.slice(sep2,length)+1-x.slice(sep2,length))
+		}
+		if(rule==2&&x.slice(sep,length)==0){
+			return x.slice(0,expr)+x.slice(rep,sep-1)
 		}
 		if(rule==2&&x.slice(sep,length)<1){
 			var bound=x.slice(rep,sep-1)
