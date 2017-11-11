@@ -3,8 +3,8 @@
 <title>Googol</title>
 <script>
 console.log("Googol started")
-window.googol={value:1e100,notations:{}}
-var files=["exe.js"]
+window.googol={value:1e100,notations:{id:x=>x}}
+var files=["exe.js","unan.js"]
 for(var i=0;i<files.length;i++){
 	var script=document.createElement("script")
 	script.src=files[i]
@@ -12,7 +12,16 @@ for(var i=0;i<files.length;i++){
 }
 console.log(googol.notations)
 function step(x){
-	return googol.notations.exe(x)
+	var notation="id"
+	for(var i=0;i<x.length;i++){
+		if(x[i].match(/[#ABCDEFGHz]/)){
+			notation="exe"
+		}else if(x[i].match(/\[|\]/)){
+			notation="unan"
+		}
+	}
+	console.log("notation="+notation)
+	return googol.notations[notation](x)
 }
 </script>
 </head>

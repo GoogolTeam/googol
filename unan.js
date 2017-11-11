@@ -1,3 +1,4 @@
+(function(){
 function step(a) {
 var p = -1;
 var p2 = -1;
@@ -87,3 +88,4 @@ if(b==0) return a;
 return calculate(step(a),b-1)
 }
 googol.notations.unan=step
+})()
