@@ -23,7 +23,7 @@
 			}
 		}
 		if(b.array=="0]")  return b.ignored+b.base*b.iterator;
-		if(b.iterator<=1) return b.ignored+math.pow(b.base,b.iterator);
+		if(b.iterator<=1) return b.ignored+Math.pow(b.base,b.iterator);
 		if(b.array.slice(b.array.length-3,b.array.length)==",0]") {
 			b.array = b.array.slice(0,b.array.length-3)+"]";
 			return b.ignored+b.base+"["+b.array+b.iterator;
