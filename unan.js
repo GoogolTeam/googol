@@ -48,6 +48,7 @@
 					}
 					var c = {start:b.array.slice(0,pos-1),middle:b.array.slice(pos+1,pos2),end:b.array.slice(pos2,b.array.length)};
 					c.middle--;
+					if(b.iterator<=2) return b.ignored+b.base+"["+c.start+2+","+c.middle+c.end+(2*Math.pow(b.base/2,b.iterator-1));
 					return b.ignored+b.base+"["+c.start+b.iterator+","+c.middle+c.end+b.base;
 				}
 				if(b.array[i]=="}"&&b.array[i+1]!="0") {
@@ -79,13 +80,14 @@
 		}
 		var num = b.array.slice(0,pos);
 		var rest = b.array.slice(pos,b.array.length);
-		num = num-1;
-		b.array2 = num+rest;
-		return b.ignored+b.base+"["+b.array2+b.base+"["+b.array+(b.iterator-1)
-	}
-	function calculate(a,b) {
-		if(b==0) return a;
-		return calculate(step(a),b-1)
+		if(Math.ceil(num)-num+1==1) {
+			num = num-1;
+			b.array2 = num+rest;
+			return b.ignored+b.base+"["+b.array2+b.base+"["+b.array+(b.iterator-1)
+		}
+		var num2 = Math.ceil(num);
+		b.array2 = num2+rest;
+		return b.ignored+b.base+"["+b.array2+(2*Math.pow(b.base/2,num-Math.ceil(num)+1));
 	}
 	googol.notations.unan=step
 })()
