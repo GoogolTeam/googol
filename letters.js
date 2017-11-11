@@ -4,24 +4,22 @@
 	}
 	function step(x){
 		var expr=-1
-		var rep=0
-		var sep=0
 		var op=0
-		const opcodes="EFGHD"
+		const opcodes="DEFGH"
 		var length=x.length
 		for(var i=0;i<length;i++){
 			if(opcodes.search(x[i])>-1){
 				expr=i
-				rep=sep=i+1
 				op=opcodes.search(x[i])
 			}
 		}
-		console.log(expr,rep,sep)
+		console.log(expr,length)
+		var ret=x.slice(expr+1,length)
 		if(expr==-1){
 			return x
-		}
-		if(rule==1){
-			var ret=x.slice(expr+1,length)
+		}else if(op==0){
+			return 10*ret
+		}else{
 			const chars="EFGH"
 			if(ret<1){
 				ret="E"+ret
