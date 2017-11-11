@@ -74,7 +74,7 @@
 					var right = f.middle.search("\\}");
 					var g = {sep:f.middle.slice(left+1,right),num:f.middle.slice(right+1,f.middle.length)};
 					var rep = "0"+"{"+(g.sep-1)+"}";
-					return b.ignored+b.base+"["+f.start+rep.repeat(b.iterator)+"1"+"{"+g.sep+"}"+(g.num-1)+f.end+b.base;
+					return b.ignored+b.base+"["+f.start+rep.repeat(Math.floor(b.iterator))+Math.pow(b.base,b.iterator-Math.floor(b.iterator))+"{"+g.sep+"}"+(g.num-1)+f.end+b.base;
 				}
 			}
 		}
