@@ -23,6 +23,10 @@ function step(x){
 	console.log("notation="+notation)
 	return googol.notations[notation](x)
 }
+function calculate(a,b) {
+if(b==0) return a;
+return calculate(step(a),b-1)
+}
 </script>
 </head>
 <body>
@@ -30,8 +34,8 @@ function step(x){
 Enter an expression in the next box
 <input id="expr" value="E3">
 <button onclick="expr.value=step(expr.value)">Step</button>
-<button>Calculate</button>
+<button onclick="expr.value=calculate(expr.value,steps.value)">Calculate</button>
 Step size for calculate:
-<input id="steps">
+<input id="steps" value="100">
 </body>
 </html>
