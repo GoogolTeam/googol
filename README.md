@@ -1,4 +1,4 @@
 # googol
 A large number notation calculator.
 
-Supports xE#, Psi Letters to H, and Dimensional UNAN.
+Supports xE#, continuous E#, Psi Letters to H, and Dimensional UNAN.
