@@ -38,7 +38,7 @@
 		}
 		if(b.array[0]==0) {
 			for (var i=0;i<b.array.length;i++) {
-				if(b.array[i]==","&&b.array[i+1]!="0") {
+				if(b.array[i]==","&&b.array[i+1]!="0"||b.array[i+2]==".") {
 					pos = i;
 					for(var j=pos+1;j<b.array.length;j++) {
 						if(b.array[j]==","||b.array[j]=="{"||b.array[j]=="]") {
@@ -57,7 +57,7 @@
 					c.middle = Math.ceil(c.middle)-1;
 					return b.ignored+b.base+"["+c.start+arg+","+c.middle+c.end+b.base;
 				}
-				if(b.array[i]=="}"&&b.array[i+1]!="0") {
+				if(b.array[i]=="}"&&b.array[i+1]!="0"||b.array[i+2]==".") {
 					pos = i;
 					pos2 = i;
 					while(b.array[pos2]!="{") {
