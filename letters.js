@@ -4,13 +4,14 @@
 	}
 	function step(x){
 		var expr=-1
-		var op=0
+		var op=-1
 		const opcodes="DEFGH"
 		var length=x.length
 		for(var i=0;i<length;i++){
-			if(opcodes.search(x[i])>-1){
+			if(opcodes.search("\\"+x[i])>-1){
 				expr=i
 				op=opcodes.search(x[i])
+				console.log(opcodes.search(x[i]))
 			}
 		}
 		var ret=x.slice(expr+1,length)
