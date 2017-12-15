@@ -4,7 +4,7 @@
 <script>
 console.log("Googol started")
 window.googol={value:1e100,notations:{id:x=>x}}
-var files=["exe.js","unan.js","letters.js","uparrows.js","decimal.min.js"]
+var files=["exe.js","unan.js","letters.js","basicmath.js","uparrows.js","decimal.min.js"]
 for(var i=0;i<files.length;i++){
 	var script=document.createElement("script")
 	script.src=files[i]
@@ -20,6 +20,8 @@ function step(x){
 			notation="unan"
 		}else if(x[i].match(/[FGH]/)){
 			notation="letters"
+		}else if(x[i].match(/\+|-|\*|\//)){
+			notation="basicmath"
 		}else if(x[i]=="^"){
 			notation="uparrows"
 		}
