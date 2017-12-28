@@ -15,3 +15,12 @@ function breakup(a) {
 		}
 	}
 }
+function fix(a){
+	for(var i=0;i<a.length;i++){
+		if(!isNaN(+a[i])){
+			return {type:"number",terminal:"true",text:a[i]}
+		}else{
+			return {type:a[i],terminal:"true",text:a[i]}
+		}
+	}
+}
