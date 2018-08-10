@@ -36,7 +36,7 @@
 			b.array = b.array.slice(0,pos);
 			return b.ignored+b.base+"["+b.array+"]"+b.iterator;
 		}
-		if(b.array[0]==0) {
+		if(b.array[0]==0&&b.array[1]!=".") {
 			for (var i=0;i<b.array.length;i++) {
 				if(b.array[i]==","&&b.array[i+1]!="0"||b.array[i+2]==".") {
 					pos = i;
